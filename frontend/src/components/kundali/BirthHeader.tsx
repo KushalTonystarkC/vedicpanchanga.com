@@ -5,19 +5,22 @@ import type { ChartData } from "@/types/api";
 
 interface Props {
   data: ChartData;
+  nativeName?: string;
   placeName?: string;
 }
 
-export function BirthHeader({ data, placeName }: Props) {
+export function BirthHeader({ data, nativeName, placeName }: Props) {
   const { t } = useI18n();
   const a = useAstro();
   const b = data.birth;
   const fmt = a.num(formatBirthDate(b.local_time, b.timezone));
   const age = formatAge(b.local_time, b.timezone);
+  const trimmedName = nativeName?.trim() ?? "";
+  const title = trimmedName || placeName || t("unnamed_native");
   return (
     <div data-testid="birth-header" className="card p-4 sm:p-5">
       <p className="eyebrow">{t("birth_details")}</p>
-      <h2 className="heading-page mt-0.5">{placeName || t("unnamed_native")}</h2>
+      <h2 className="heading-page mt-0.5">{title}</h2>
       <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 mt-3">
         <Row label={t("local")} value={fmt} />
         {age && <Row label={t("age")} value={a.num(age)} />}

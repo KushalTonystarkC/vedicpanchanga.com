@@ -2,7 +2,7 @@
 
 Free online Vedic astrology calculator - no signup, no download, works in any browser. Sidereal Lahiri ayanamsa, Swiss Ephemeris precision from 5000 BCE to 5000 CE. Available in 14 languages: English, Hindi, Tamil, Bengali, Nepali, Chinese, Japanese, Spanish, German, Portuguese, French, Russian, Arabic, Hebrew.
 
-## [Panchang - Daily Vedic Almanac](https://vedicpanchanga.com/)
+## [Panchang - Daily Vedic Almanac](https://vedicpanchanga.com/panchang)
 
 Check today's Panchang for any city worldwide. Shows tithi (lunar day), nakshatra (lunar mansion), yoga, karana, sunrise and sunset times, Rahu Kalam, Yamagandam, Gulika Kalam, Abhijit Muhurta, and daily auspicious/inauspicious windows. Includes Gowri Panchangam (Nalla Neram) for Tamil/Telugu traditions, Hora hours with planetary rulers, Tyajyam (inauspicious periods), and Hindu calendar dates (Vikram Samvat, Shaka Samvat).
 

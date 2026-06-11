@@ -33,6 +33,7 @@ interface Props {
   showDegrees?: boolean;
   selectedPlanet?: string | null;
   onSelectPlanet?: (abbr: string | null) => void;
+  onSelectHouse?: (house: number) => void;
   drishti?: DrishtiData;
   showAspects?: boolean;
 }
@@ -82,6 +83,7 @@ export function SouthIndianChart({
   showDegrees,
   selectedPlanet,
   onSelectPlanet,
+  onSelectHouse,
   drishti,
   showAspects,
 }: Props) {
@@ -185,8 +187,20 @@ export function SouthIndianChart({
             const planets = signToPlanets[sign] ?? [];
             const isAspected = aspectedHouses?.has(houseNum) ?? false;
             const isSource = fromHouse === houseNum;
+            const houseClickable = !!onSelectHouse;
             return (
               <g key={sign} data-testid={`${testId}-cell-${sign}`}>
+                {houseClickable && (
+                  <rect
+                    x={pos.x}
+                    y={pos.y}
+                    width={CELL}
+                    height={CELL}
+                    fill="transparent"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => onSelectHouse!(houseNum)}
+                  />
+                )}
                 {(isAspected || isSource) && (
                   <rect
                     x={pos.x + 2}
@@ -206,8 +220,8 @@ export function SouthIndianChart({
                   fontSize="18"
                   fontWeight="700"
                   className="font-serif"
-                  style={{ fill: signCol }}
-                  opacity="0.95"
+                  style={{ fill: signCol, cursor: houseClickable ? "pointer" : undefined }}
+                  onClick={houseClickable ? () => onSelectHouse!(houseNum) : undefined}
                 >
                   {a.num(houseNum)}
                 </text>
@@ -260,7 +274,12 @@ export function SouthIndianChart({
                     <g
                       key={`${sign}-${idx}`}
                       onClick={
-                        clickable ? () => onSelectPlanet!(isSelected ? null : abbr) : undefined
+                        clickable
+                          ? (e) => {
+                              e.stopPropagation();
+                              onSelectPlanet!(isSelected ? null : abbr);
+                            }
+                          : undefined
                       }
                       style={{ cursor: clickable ? "pointer" : "default" }}
                     >

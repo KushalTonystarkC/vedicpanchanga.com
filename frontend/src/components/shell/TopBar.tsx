@@ -10,7 +10,7 @@ export function TopBar({ view, setView }: { view: View; setView: (v: View) => vo
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const tabs: { id: View; label: string; href: string }[] = [
-    { id: "panchang", label: t("nav_panchang"), href: "/" },
+    { id: "panchang", label: t("nav_panchang"), href: "/panchang" },
     { id: "kundali", label: t("nav_kundali"), href: "/kundali" },
     { id: "muhurta", label: t("nav_muhurta"), href: "/muhurta" },
     { id: "transits", label: t("nav_transits"), href: "/transits" },
@@ -56,8 +56,12 @@ export function TopBar({ view, setView }: { view: View; setView: (v: View) => vo
         <a
           href="/"
           data-testid="brand-logo"
-          className="flex items-center gap-2 shrink-0 no-underline text-ink-soft"
+          className={`flex items-center gap-2 shrink-0 no-underline transition-colors ${
+            view === "home" ? "text-saffron" : "text-ink-soft hover:text-ink"
+          }`}
           aria-label="VedicPanchanga home"
+          aria-current={view === "home" ? "page" : undefined}
+          onClick={(e) => onNavClick(e, "home")}
         >
           <MandalaMark size={26} />
           <div className="leading-tight hidden sm:block">

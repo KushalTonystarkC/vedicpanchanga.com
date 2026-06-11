@@ -10,6 +10,7 @@ import {
 } from "@/components/kundali/ChartTabs";
 import { PlanetsTable } from "@/components/kundali/PlanetsTable";
 import { PlanetDetailModal } from "@/components/kundali/PlanetDetailModal";
+import { HouseDetailModal } from "@/components/kundali/HouseDetailModal";
 import { DashaTable } from "@/components/kundali/DashaTable";
 import { AshtakavargaTable } from "@/components/kundali/AshtakavargaTable";
 import { DrishtiPanel } from "@/components/kundali/DrishtiPanel";
@@ -136,9 +137,12 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
   const [printing, setPrinting] = useState(false);
   const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);
   const [detailPlanetAbbr, setDetailPlanetAbbr] = useState<string | null>(null);
+  const [detailHouseNum, setDetailHouseNum] = useState<number | null>(null);
   const [detailDivision, setDetailDivision] = useState(1);
   const [hideOuter, setHideOuterState] = useState(loadHideOuter);
   const didAutoRunRef = useRef(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const [scrollToResults, setScrollToResults] = useState(false);
 
   const setHideOuter = (v: boolean) => {
     setHideOuterState(v);
@@ -208,9 +212,34 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
   }, [detailPlanetAbbr, detailDivision, data]);
 
   const openPlanetDetail = useCallback((abbr: string | null, division = 1) => {
+    setDetailHouseNum(null);
     setDetailPlanetAbbr(abbr);
     setDetailDivision(division);
   }, []);
+
+  const openHouseDetail = useCallback((house: number, division = 1) => {
+    setDetailPlanetAbbr(null);
+    setDetailHouseNum(house);
+    setDetailDivision(division);
+  }, []);
+
+  const detailHouseContext = useMemo(() => {
+    if (!detailHouseNum || !data) return null;
+    const varga =
+      detailDivision === 1
+        ? { asc_sign: data.d1_asc_sign, chart: data.d1_chart }
+        : data.vargas?.[`d${detailDivision}`];
+    if (!varga) return null;
+    let houseMap = varga.chart;
+    if (hideOuter) {
+      const out: Record<number, string[]> = {};
+      for (const [h, abbrs] of Object.entries(houseMap)) {
+        out[Number(h)] = abbrs.filter((a) => !OUTER_ABBRS.has(a));
+      }
+      houseMap = out;
+    }
+    return { ascSign: varga.asc_sign, houseMap };
+  }, [detailHouseNum, detailDivision, data, hideOuter]);
 
   const calculate = async (body: BirthFormState) => {
     setLoading(true);
@@ -242,6 +271,14 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (!scrollToResults || loading) return;
+    setScrollToResults(false);
+    if (data) {
+      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [scrollToResults, loading, data]);
+
   // URL params are only generated on-demand via the share-link button
   // (shareUrlFor). The address bar stays clean at all times.
 
@@ -256,6 +293,7 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
       longitude: form.longitude,
       timezone: form.timezone,
     });
+    setScrollToResults(true);
     calculate(form);
   };
 
@@ -383,7 +421,10 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
         </aside>
 
         {/* Middle — chart + data */}
-        <div className="lg:col-span-8 xl:col-span-9 space-y-4">
+        <div
+          ref={resultsRef}
+          className="lg:col-span-8 xl:col-span-9 space-y-4 scroll-mt-16"
+        >
           {loading && !data && (
             <div className="flex flex-col items-center justify-center py-20 gap-3">
               <MandalaLoader size={48} />
@@ -392,7 +433,11 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
           )}
           {data && (
             <>
-              <BirthHeader data={data} placeName={submittedPlaceName} />
+              <BirthHeader
+                data={data}
+                nativeName={nativeName}
+                placeName={submittedPlaceName}
+              />
               <div className="flex justify-end">
                 <ShareLinkButton
                   testId="kundali-share-link"
@@ -413,6 +458,7 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
                 selectedPlanet={selectedPlanet}
                 onSelectPlanet={setSelectedPlanet}
                 onPlanetDetail={openPlanetDetail}
+                onHouseDetail={openHouseDetail}
                 hideOuter={hideOuter}
                 onHideOuterChange={setHideOuter}
                 filteredPlanets={filteredPlanets}
@@ -449,6 +495,13 @@ export function KundaliPage({ sharedLocation, onLocationChange }: Props) {
                 data={data}
                 division={detailDivision}
                 onClose={() => setDetailPlanetAbbr(null)}
+              />
+              <HouseDetailModal
+                house={detailHouseNum}
+                ascSign={detailHouseContext?.ascSign ?? data.d1_asc_sign}
+                houseMap={detailHouseContext?.houseMap}
+                division={detailDivision}
+                onClose={() => setDetailHouseNum(null)}
               />
             </>
           )}

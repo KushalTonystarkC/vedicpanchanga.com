@@ -13,6 +13,36 @@ const pt: Record<string, string> = {
   nav_panchang: "Panchang",
   nav_muhurta: "Muhurta",
   nav_transits: "Trânsitos",
+
+  landing_eyebrow: "Ferramentas védicas de astrologia grátis",
+  landing_title: "Seu guia diário do tempo védico",
+  landing_subtitle:
+    "Panchang, mapas natais, momentos auspiciosos e mais - preciso, grátis e fácil de usar",
+  landing_cta_panchang: "Ver o Panchang de hoje",
+  landing_cta_panchang_sub: "Tithi, nakshatra, nascer do sol e janelas de muhurta",
+  landing_tools_title: "Escolha uma ferramenta",
+  landing_tools_sub: "Escolha o que precisa - tudo funciona no navegador, sem cadastro",
+  landing_feature_panchang_desc:
+    "Almanaque hindu diário - tithi, nakshatra, yoga, karana, Rahu Kala, Hora e mais",
+  landing_feature_kundali_desc:
+    "Mapa natal completo com divisionais, dasha, ashtakavarga e Jaimini",
+  landing_feature_muhurta_desc:
+    "Encontre datas auspiciosas para casamento, viagem, negócios e outros eventos",
+  landing_feature_transits_desc:
+    "Acompanhe quando os planetas mudam de signo, nakshatra ou ficam retrógrados",
+  landing_feature_frequency_desc: "Tons curativos, frequências Solfeggio, OM e sons Navagraha",
+  landing_popular: "Mais usado",
+  landing_how_title: "Como funciona",
+  landing_step_1_title: "Escolha uma ferramenta",
+  landing_step_1_desc: "Toque Panchang para o calendário de hoje, ou Kundali para seu mapa natal",
+  landing_step_2_title: "Defina o local",
+  landing_step_2_desc:
+    "Pesquise sua cidade - os cálculos ajustam ao nascer do sol local e fuso horário",
+  landing_step_3_title: "Resultados na hora",
+  landing_step_3_desc: "Com Swiss Ephemeris - a mesma precisão usada por astrólogos profissionais",
+  landing_free: "Grátis para sempre · Sem conta · Funciona no celular e no computador",
+  landing_open_tool: "Abrir",
+
   transits_today: "Hoje",
 
   muhurta_title: "Localizador de Muhurta",
@@ -183,7 +213,7 @@ const pt: Record<string, string> = {
   drishti_medium: "Medio",
   drishti_strong: "Forte",
   drishti_full: "Completo",
-  drishti_hint: "Toque em qualquer planeta no mapa para ver seus aspectos",
+  drishti_hint: "Toque em qualquer planeta ou casa no mapa para ver detalhes",
   col_planet: "Planeta",
   col_time: "Hora",
   col_result: "Resultado",
@@ -336,6 +366,51 @@ const pt: Record<string, string> = {
   pd_friendships: "Amizades (5 niveis)",
   pd_no_placements: "Sem posicoes especiais",
   pd_close: "Fechar",
+
+  hd_house: "Casa",
+  hd_overview: "Visao Geral",
+  hd_lord: "Senhor da Casa",
+  hd_planets: "Planetas na Casa",
+  hd_no_planets: "Nenhum planeta nesta casa",
+  hd_interpretation: "Significado",
+  hd_close: "Fechar",
+  house_1_name: "Lagna (Eu)",
+  house_1_desc:
+    "A 1.a casa rege o corpo, a personalidade, a vitalidade e a abordagem da vida. Molda a primeira impressao e a aparencia.",
+  house_2_name: "Dhana (Riqueza)",
+  house_2_desc:
+    "A 2.a casa relaciona-se com riqueza, familia, fala, habitos alimentares e valores pessoais.",
+  house_3_name: "Sahaja (Irmaos)",
+  house_3_desc:
+    "A 3.a casa abrange irmaos, coragem, comunicacao, viagens curtas e esforco pessoal.",
+  house_4_name: "Sukha (Lar)",
+  house_4_desc:
+    "A 4.a casa representa lar, mae, paz interior, propriedade e bases educacionais.",
+  house_5_name: "Putra (Filhos)",
+  house_5_desc:
+    "A 5.a casa rege filhos, criatividade, inteligencia, romance e merito passado.",
+  house_6_name: "Ripu (Inimigos)",
+  house_6_desc:
+    "A 6.a casa trata de inimigos, dividas, doenca, obstaculos e servico diario.",
+  house_7_name: "Kalatra (Conjuge)",
+  house_7_desc:
+    "A 7.a casa rege casamento, parcerias e relacoes publicas.",
+  house_8_name: "Ayu (Longevidade)",
+  house_8_desc:
+    "A 8.a casa cobre longevidade, transformacao, heranca, conhecimento oculto e eventos subitos.",
+  house_9_name: "Dharma (Fortuna)",
+  house_9_desc:
+    "A 9.a casa representa fortuna, pai, religiao, educacao superior e viagens longas.",
+  house_10_name: "Karma (Carreira)",
+  house_10_desc:
+    "A 10.a casa rege carreira, status, autoridade e reputacao publica.",
+  house_11_name: "Labha (Ganhos)",
+  house_11_desc:
+    "A 11.a casa relaciona-se com ganhos, renda, irmaos mais velhos, aspiracoes e desejos cumpridos.",
+  house_12_name: "Vyaya (Despesas)",
+  house_12_desc:
+    "A 12.a casa cobre despesas, perdas, terras estrangeiras, solidao e libertacao espiritual.",
+
   col_dignity: "Dignidade",
   col_status: "Estado",
   dignity_exalted: "Exaltado",

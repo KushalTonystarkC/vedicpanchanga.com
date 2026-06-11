@@ -13,6 +13,39 @@ const fr: Record<string, string> = {
   nav_panchang: "Panchang",
   nav_muhurta: "Muhurta",
   nav_transits: "Transits",
+
+  landing_eyebrow: "Outils d'astrologie védique gratuits",
+  landing_title: "Votre guide quotidien du temps védique",
+  landing_subtitle:
+    "Panchang, thèmes de naissance, moments propices et plus - précis, gratuit et simple",
+  landing_cta_panchang: "Voir le Panchang du jour",
+  landing_cta_panchang_sub: "Tithi, nakshatra, lever du soleil et fenêtres de muhurta",
+  landing_tools_title: "Choisir un outil",
+  landing_tools_sub:
+    "Choisissez ce dont vous avez besoin - tout fonctionne dans le navigateur, sans inscription",
+  landing_feature_panchang_desc:
+    "Almanach hindou quotidien - tithi, nakshatra, yoga, karana, Rahu Kala, Hora et plus",
+  landing_feature_kundali_desc:
+    "Thème natal complet avec cartes divisionnelles, dasha, ashtakavarga et Jaimini",
+  landing_feature_muhurta_desc:
+    "Trouvez des dates propices pour mariage, voyage, affaires et autres événements",
+  landing_feature_transits_desc:
+    "Suivez quand les planètes changent de signe, nakshatra ou deviennent rétrogrades",
+  landing_feature_frequency_desc: "Tons de guérison, fréquences Solfeggio, OM et sons Navagraha",
+  landing_popular: "Le plus utilisé",
+  landing_how_title: "Comment ça marche",
+  landing_step_1_title: "Choisir un outil",
+  landing_step_1_desc:
+    "Appuyez sur Panchang pour le calendrier du jour, ou Kundali pour votre thème",
+  landing_step_2_title: "Indiquer le lieu",
+  landing_step_2_desc:
+    "Recherchez votre ville - les calculs s'adaptent au lever du soleil local et au fuseau horaire",
+  landing_step_3_title: "Résultats instantanés",
+  landing_step_3_desc:
+    "Propulsé par Swiss Ephemeris - la même précision que les astrologues professionnels",
+  landing_free: "Gratuit pour toujours · Sans compte · Sur mobile et ordinateur",
+  landing_open_tool: "Ouvrir",
+
   transits_today: "Aujourd'hui",
 
   muhurta_title: "Recherche de Muhurta",
@@ -187,7 +220,7 @@ const fr: Record<string, string> = {
   drishti_medium: "Moyen",
   drishti_strong: "Fort",
   drishti_full: "Complet",
-  drishti_hint: "Appuyez sur une planete dans la carte pour voir ses aspects",
+  drishti_hint: "Appuyez sur une planete ou une maison dans la carte pour voir les details",
   col_planet: "Planète",
   col_time: "Heure",
   col_result: "Résultat",
@@ -340,6 +373,51 @@ const fr: Record<string, string> = {
   pd_friendships: "Amities (5 niveaux)",
   pd_no_placements: "Aucune position speciale",
   pd_close: "Fermer",
+
+  hd_house: "Maison",
+  hd_overview: "Apercu",
+  hd_lord: "Maitre de la Maison",
+  hd_planets: "Planetes dans la Maison",
+  hd_no_planets: "Aucune planete dans cette maison",
+  hd_interpretation: "Signification",
+  hd_close: "Fermer",
+  house_1_name: "Lagna (Soi)",
+  house_1_desc:
+    "La 1re maison regit le corps, la personnalite, la vitalite et l'approche de la vie. Elle faconne la premiere impression et l'apparence.",
+  house_2_name: "Dhana (Richesse)",
+  house_2_desc:
+    "La 2e maison concerne la richesse, la famille, la parole, les habitudes alimentaires et les valeurs personnelles.",
+  house_3_name: "Sahaja (Freres et soeurs)",
+  house_3_desc:
+    "La 3e maison couvre les freres et soeurs, le courage, la communication, les voyages courts et l'effort personnel.",
+  house_4_name: "Sukha (Foyer)",
+  house_4_desc:
+    "La 4e maison represente le foyer, la mere, la paix interieure, la propriete et les bases educatives.",
+  house_5_name: "Putra (Enfants)",
+  house_5_desc:
+    "La 5e maison regit les enfants, la creativite, l'intelligence, la romance et le merite passe.",
+  house_6_name: "Ripu (Ennemis)",
+  house_6_desc:
+    "La 6e maison traite des ennemis, des dettes, de la maladie, des obstacles et du service quotidien.",
+  house_7_name: "Kalatra (Conjoint)",
+  house_7_desc:
+    "La 7e maison regit le mariage, les partenariats et les relations publiques.",
+  house_8_name: "Ayu (Longevite)",
+  house_8_desc:
+    "La 8e maison couvre la longevite, la transformation, l'heritage, la connaissance occulte et les evenements soudains.",
+  house_9_name: "Dharma (Fortune)",
+  house_9_desc:
+    "La 9e maison represente la fortune, le pere, la religion, l'enseignement superieur et les longs voyages.",
+  house_10_name: "Karma (Carriere)",
+  house_10_desc:
+    "La 10e maison regit la carriere, le statut, l'autorite et la reputation publique.",
+  house_11_name: "Labha (Gains)",
+  house_11_desc:
+    "La 11e maison concerne les gains, les revenus, les freres et soeurs aines, les aspirations et les desirs accomplis.",
+  house_12_name: "Vyaya (Depenses)",
+  house_12_desc:
+    "La 12e maison couvre les depenses, les pertes, les terres etrangeres, la solitude et la liberation spirituelle.",
+
   col_dignity: "Dignite",
   col_status: "Statut",
   dignity_exalted: "Exalte",

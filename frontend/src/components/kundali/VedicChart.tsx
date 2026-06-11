@@ -51,6 +51,7 @@ interface Props {
   showDegrees?: boolean;
   selectedPlanet?: string | null;
   onSelectPlanet?: (abbr: string | null) => void;
+  onSelectHouse?: (house: number) => void;
   drishti?: DrishtiData;
   showAspects?: boolean;
 }
@@ -96,6 +97,7 @@ export function VedicChart({
   showDegrees,
   selectedPlanet,
   onSelectPlanet,
+  onSelectHouse,
   drishti,
   showAspects,
 }: Props) {
@@ -187,8 +189,19 @@ export function VedicChart({
             const labelPos = SIGN_LABEL_POSITIONS[h];
             const isAspected = aspectedHouses?.has(h) ?? false;
             const isSource = fromHouse === h;
+            const houseClickable = !!onSelectHouse;
             return (
               <g key={h} data-testid={`${testId}-house-${h}`}>
+                {houseClickable && (
+                  <circle
+                    cx={c.x}
+                    cy={c.y}
+                    r={42}
+                    fill="transparent"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => onSelectHouse!(h)}
+                  />
+                )}
                 {(isAspected || isSource) && (
                   <circle
                     cx={c.x}
@@ -207,8 +220,8 @@ export function VedicChart({
                   className="font-serif"
                   fontSize="20"
                   fontWeight="700"
-                  style={{ fill: signCol }}
-                  opacity="0.9"
+                  style={{ fill: signCol, cursor: houseClickable ? "pointer" : undefined }}
+                  onClick={houseClickable ? () => onSelectHouse!(h) : undefined}
                 >
                   {a.num(sign)}
                 </text>
@@ -233,7 +246,12 @@ export function VedicChart({
                     <g
                       key={`${h}-${idx}`}
                       onClick={
-                        clickable ? () => onSelectPlanet!(isSelected ? null : abbr) : undefined
+                        clickable
+                          ? (e) => {
+                              e.stopPropagation();
+                              onSelectPlanet!(isSelected ? null : abbr);
+                            }
+                          : undefined
                       }
                       style={{ cursor: clickable ? "pointer" : "default" }}
                     >

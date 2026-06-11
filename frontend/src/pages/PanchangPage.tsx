@@ -15,6 +15,7 @@ import { SouthIndianChart } from "@/components/kundali/SouthIndianChart";
 import { WesternChart } from "@/components/kundali/WesternChart";
 import { PlanetsTable } from "@/components/kundali/PlanetsTable";
 import { PlanetDetailModal } from "@/components/kundali/PlanetDetailModal";
+import { HouseDetailModal } from "@/components/kundali/HouseDetailModal";
 import { HIDE_OUTER_KEY, OUTER_ABBRS, loadHideOuter } from "@/components/kundali/ChartTabs";
 import { SegmentedControl } from "@/components/ui/segmented-control";
 import { Switch } from "@/components/ui/switch";
@@ -135,6 +136,7 @@ export function PanchangPage({ defaultLocation }: { defaultLocation: LocationCho
   const [data, setData] = useState<PanchangData | null>(null);
   const [chart, setChart] = useState<ChartData | null>(null);
   const [detailPlanetAbbr, setDetailPlanetAbbr] = useState<string | null>(null);
+  const [detailHouseNum, setDetailHouseNum] = useState<number | null>(null);
 
   const detailPlanet = useMemo(() => {
     if (!detailPlanetAbbr || !chart) return null;
@@ -143,7 +145,15 @@ export function PanchangPage({ defaultLocation }: { defaultLocation: LocationCho
   }, [detailPlanetAbbr, chart]);
 
   const openPlanetDetail = useCallback((abbr: string | null) => {
-    if (abbr) setDetailPlanetAbbr(abbr);
+    if (abbr) {
+      setDetailHouseNum(null);
+      setDetailPlanetAbbr(abbr);
+    }
+  }, []);
+
+  const openHouseDetail = useCallback((house: number) => {
+    setDetailPlanetAbbr(null);
+    setDetailHouseNum(house);
   }, []);
 
   // The HH:MM the lagna kundali is cast for. We use *current* wall-clock time
@@ -511,7 +521,7 @@ export function PanchangPage({ defaultLocation }: { defaultLocation: LocationCho
                   </p>
                   <ShareLinkButton
                     testId="panchang-share-link"
-                    url={shareUrlFor("/", {
+                    url={shareUrlFor("/panchang", {
                       date,
                       lat: round4(loc.latitude),
                       lon: round4(loc.longitude),
@@ -613,6 +623,7 @@ export function PanchangPage({ defaultLocation }: { defaultLocation: LocationCho
                             planetStatus={chartPlanetStatus}
                             showDegrees={showDegrees}
                             onSelectPlanet={openPlanetDetail}
+                            onSelectHouse={openHouseDetail}
                           />
                         ) : (
                           <VedicChart
@@ -624,6 +635,7 @@ export function PanchangPage({ defaultLocation }: { defaultLocation: LocationCho
                             planetStatus={chartPlanetStatus}
                             showDegrees={showDegrees}
                             onSelectPlanet={openPlanetDetail}
+                            onSelectHouse={openHouseDetail}
                           />
                         )}
                       </div>
@@ -648,6 +660,12 @@ export function PanchangPage({ defaultLocation }: { defaultLocation: LocationCho
                     planet={detailPlanet}
                     data={chart}
                     onClose={() => setDetailPlanetAbbr(null)}
+                  />
+                  <HouseDetailModal
+                    house={detailHouseNum}
+                    ascSign={chart.d1_asc_sign}
+                    houseMap={filteredChart ?? undefined}
+                    onClose={() => setDetailHouseNum(null)}
                   />
                 </>
               ) : (

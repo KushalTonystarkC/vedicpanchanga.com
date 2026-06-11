@@ -14,6 +14,34 @@ const en: Record<string, string> = {
   nav_muhurta: "Muhurta",
   nav_transits: "Transits",
 
+  landing_eyebrow: "Free Vedic Astrology Tools",
+  landing_title: "Your daily guide to Vedic time",
+  landing_subtitle:
+    "Panchang, birth charts, auspicious timings, and more - accurate, free, and easy to use",
+  landing_cta_panchang: "See Today's Panchang",
+  landing_cta_panchang_sub: "Tithi, nakshatra, sunrise and muhurta windows",
+  landing_tools_title: "Choose a tool",
+  landing_tools_sub: "Pick what you need - everything runs in your browser, no signup",
+  landing_feature_panchang_desc:
+    "Daily Hindu almanac - tithi, nakshatra, yoga, karana, Rahu Kala, Hora and more",
+  landing_feature_kundali_desc:
+    "Full birth chart with divisional charts, dasha, ashtakavarga and Jaimini",
+  landing_feature_muhurta_desc:
+    "Find auspicious dates for marriage, travel, business and other events",
+  landing_feature_transits_desc: "Track when planets change signs, nakshatras, or go retrograde",
+  landing_feature_frequency_desc: "Healing tones, Solfeggio frequencies, OM and Navagraha sounds",
+  landing_popular: "Most used",
+  landing_how_title: "How it works",
+  landing_step_1_title: "Pick a tool",
+  landing_step_1_desc: "Tap Panchang for today's calendar, or Kundali for your birth chart",
+  landing_step_2_title: "Set your place",
+  landing_step_2_desc: "Search your city - calculations adjust to your local sunrise and timezone",
+  landing_step_3_title: "Get results instantly",
+  landing_step_3_desc:
+    "Powered by Swiss Ephemeris - the same precision used by professional astrologers",
+  landing_free: "Free forever · No account needed · Works on phone and desktop",
+  landing_open_tool: "Open",
+
   transits_eyebrow: "Planetary Transits",
   transits_title: "Timeline view of all Planetary events",
   transits_subtitle:
@@ -203,7 +231,7 @@ const en: Record<string, string> = {
   drishti_medium: "Medium",
   drishti_strong: "Strong",
   drishti_full: "Full",
-  drishti_hint: "Tap any planet in the chart to explore its aspects",
+  drishti_hint: "Tap any planet or house in the chart for details",
   col_planet: "Planet",
   col_time: "Time",
   col_result: "Result",
@@ -356,6 +384,51 @@ const en: Record<string, string> = {
   pd_friendships: "Friendships (5-fold)",
   pd_no_placements: "No special placements",
   pd_close: "Close",
+
+  hd_house: "House",
+  hd_overview: "Overview",
+  hd_lord: "House Lord",
+  hd_planets: "Planets in House",
+  hd_no_planets: "No planets in this house",
+  hd_interpretation: "Meaning",
+  hd_close: "Close",
+  house_1_name: "Lagna (Self)",
+  house_1_desc:
+    "The 1st house governs your body, personality, vitality, and overall approach to life. It shapes first impressions and physical appearance.",
+  house_2_name: "Dhana (Wealth)",
+  house_2_desc:
+    "The 2nd house relates to wealth, family, speech, food habits, and personal values. It indicates how you earn and manage resources.",
+  house_3_name: "Sahaja (Siblings)",
+  house_3_desc:
+    "The 3rd house covers siblings, courage, communication, short journeys, and personal effort. It reflects mental agility and initiative.",
+  house_4_name: "Sukha (Home)",
+  house_4_desc:
+    "The 4th house represents home, mother, inner peace, property, and education foundations. It shows emotional security and domestic happiness.",
+  house_5_name: "Putra (Children)",
+  house_5_desc:
+    "The 5th house governs children, creativity, intelligence, romance, and past merit. It reflects joy and self-expression.",
+  house_6_name: "Ripu (Enemies)",
+  house_6_desc:
+    "The 6th house deals with enemies, debts, disease, obstacles, and daily service. It shows how you handle competition and hardship.",
+  house_7_name: "Kalatra (Spouse)",
+  house_7_desc:
+    "The 7th house rules marriage, partnerships, and public dealings. It reveals the nature of your spouse and business relationships.",
+  house_8_name: "Ayu (Longevity)",
+  house_8_desc:
+    "The 8th house covers longevity, transformation, inheritance, occult knowledge, and sudden events. It indicates hidden matters and crises.",
+  house_9_name: "Dharma (Fortune)",
+  house_9_desc:
+    "The 9th house represents fortune, father, religion, higher learning, and long journeys. It reflects wisdom, ethics, and grace.",
+  house_10_name: "Karma (Career)",
+  house_10_desc:
+    "The 10th house governs career, status, authority, and public reputation. It shows your profession and contribution to society.",
+  house_11_name: "Labha (Gains)",
+  house_11_desc:
+    "The 11th house relates to gains, income, elder siblings, aspirations, and fulfillment of desires. It indicates prosperity from effort.",
+  house_12_name: "Vyaya (Expenses)",
+  house_12_desc:
+    "The 12th house covers expenses, losses, foreign lands, solitude, and spiritual liberation. It reflects letting go and the subconscious.",
+
   col_dignity: "Dignity",
   col_status: "Status",
   dignity_exalted: "Exalted",

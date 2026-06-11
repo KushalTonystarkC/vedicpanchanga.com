@@ -13,6 +13,37 @@ const de: Record<string, string> = {
   nav_panchang: "Panchang",
   nav_muhurta: "Muhurta",
   nav_transits: "Transite",
+
+  landing_eyebrow: "Kostenlose vedische Astrologie-Tools",
+  landing_title: "Ihr täglicher Wegweiser zur vedischen Zeit",
+  landing_subtitle:
+    "Panchang, Geburtshoroskope, günstige Zeiten und mehr - genau, kostenlos und einfach",
+  landing_cta_panchang: "Heutiges Panchang anzeigen",
+  landing_cta_panchang_sub: "Tithi, Nakshatra, Sonnenaufgang und Muhurta-Fenster",
+  landing_tools_title: "Tool auswählen",
+  landing_tools_sub: "Wählen Sie, was Sie brauchen - alles läuft im Browser, ohne Anmeldung",
+  landing_feature_panchang_desc:
+    "Täglicher hinduistischer Almanach - Tithi, Nakshatra, Yoga, Karana, Rahu Kala, Hora und mehr",
+  landing_feature_kundali_desc:
+    "Vollständiges Geburtshoroskop mit Divisionalen, Dasha, Ashtakavarga und Jaimini",
+  landing_feature_muhurta_desc:
+    "Finden Sie günstige Daten für Hochzeit, Reise, Geschäft und andere Anlässe",
+  landing_feature_transits_desc:
+    "Verfolgen Sie, wann Planeten Zeichen, Nakshatra wechseln oder rückläufig werden",
+  landing_feature_frequency_desc: "Heilungstöne, Solfeggio-Frequenzen, OM und Navagraha-Klänge",
+  landing_popular: "Am häufigsten",
+  landing_how_title: "So funktioniert es",
+  landing_step_1_title: "Tool wählen",
+  landing_step_1_desc: "Panchang für den heutigen Kalender oder Kundali für Ihr Geburtshoroskop",
+  landing_step_2_title: "Ort festlegen",
+  landing_step_2_desc:
+    "Stadt suchen - Berechnungen passen sich an lokalen Sonnenaufgang und Zeitzone an",
+  landing_step_3_title: "Sofortige Ergebnisse",
+  landing_step_3_desc:
+    "Mit Swiss Ephemeris - dieselbe Präzision wie bei professionellen Astrologen",
+  landing_free: "Für immer kostenlos · Kein Konto nötig · Auf Handy und Desktop",
+  landing_open_tool: "Öffnen",
+
   transits_today: "Heute",
 
   muhurta_title: "Muhurta-Suche",
@@ -183,7 +214,7 @@ const de: Record<string, string> = {
   drishti_medium: "Mittel",
   drishti_strong: "Stark",
   drishti_full: "Voll",
-  drishti_hint: "Tippen Sie auf einen Planeten im Horoskop um seine Aspekte zu sehen",
+  drishti_hint: "Tippen Sie auf einen Planeten oder ein Haus im Horoskop fuer Details",
   col_planet: "Planet",
   col_time: "Zeit",
   col_result: "Ergebnis",
@@ -336,6 +367,51 @@ const de: Record<string, string> = {
   pd_friendships: "Freundschaften (5-fach)",
   pd_no_placements: "Keine besonderen Stellungen",
   pd_close: "Schliessen",
+
+  hd_house: "Haus",
+  hd_overview: "Ueberblick",
+  hd_lord: "Hausherr",
+  hd_planets: "Planeten im Haus",
+  hd_no_planets: "Keine Planeten in diesem Haus",
+  hd_interpretation: "Bedeutung",
+  hd_close: "Schliessen",
+  house_1_name: "Lagna (Selbst)",
+  house_1_desc:
+    "Das 1. Haus regiert Koerper, Persoenlichkeit, Vitalitaet und den Lebensansatz. Es praegt den ersten Eindruck und das Aussehen.",
+  house_2_name: "Dhana (Reichtum)",
+  house_2_desc:
+    "Das 2. Haus betrifft Reichtum, Familie, Sprache, Essgewohnheiten und persoenliche Werte.",
+  house_3_name: "Sahaja (Geschwister)",
+  house_3_desc:
+    "Das 3. Haus umfasst Geschwister, Mut, Kommunikation, kurze Reisen und persoenlichen Einsatz.",
+  house_4_name: "Sukha (Heim)",
+  house_4_desc:
+    "Das 4. Haus steht fuer Heim, Mutter, inneren Frieden, Eigentum und Bildungsgrundlagen.",
+  house_5_name: "Putra (Kinder)",
+  house_5_desc:
+    "Das 5. Haus regiert Kinder, Kreativitaet, Intelligenz, Romantik und frueheres Verdienst.",
+  house_6_name: "Ripu (Feinde)",
+  house_6_desc:
+    "Das 6. Haus behandelt Feinde, Schulden, Krankheit, Hindernisse und taeglichen Dienst.",
+  house_7_name: "Kalatra (Ehepartner)",
+  house_7_desc:
+    "Das 7. Haus regiert Ehe, Partnerschaften und oeffentliche Beziehungen.",
+  house_8_name: "Ayu (Langlebigkeit)",
+  house_8_desc:
+    "Das 8. Haus betrifft Langlebigkeit, Transformation, Erbschaft, okkultes Wissen und ploetzliche Ereignisse.",
+  house_9_name: "Dharma (Glueck)",
+  house_9_desc:
+    "Das 9. Haus steht fuer Glueck, Vater, Religion, hoehere Bildung und lange Reisen.",
+  house_10_name: "Karma (Karriere)",
+  house_10_desc:
+    "Das 10. Haus regiert Karriere, Status, Autoritaet und oeffentlichen Ruf.",
+  house_11_name: "Labha (Gewinne)",
+  house_11_desc:
+    "Das 11. Haus betrifft Gewinne, Einkommen, aeltere Geschwister, Aspirationen und erfuellte Wuensche.",
+  house_12_name: "Vyaya (Ausgaben)",
+  house_12_desc:
+    "Das 12. Haus umfasst Ausgaben, Verluste, fremde Laender, Einsamkeit und spirituelle Befreiung.",
+
   col_dignity: "Wuerde",
   col_status: "Status",
   dignity_exalted: "Erhoeht",

@@ -4,11 +4,33 @@ import { CONTACT_EMAIL } from "@/lib/contact";
 const GITHUB_URL = "https://github.com/bidyashish/vedicpanchanga.com";
 const INSTAGRAM_URL = "https://www.instagram.com/vedicpanchanga/";
 
+const TOOL_LINKS = [
+  { href: "/panchang", labelKey: "nav_panchang" },
+  { href: "/kundali", labelKey: "nav_kundali" },
+  { href: "/muhurta", labelKey: "nav_muhurta" },
+  { href: "/transits", labelKey: "nav_transits" },
+  { href: "/frequency", labelKey: "nav_frequency" },
+] as const;
+
 export function Footer() {
   const { t } = useI18n();
   return (
     <footer className="mt-12 pt-6 pb-8 border-t border-parchment-200">
       <div className="max-w-screen-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav
+          aria-label={t("landing_tools_title")}
+          className="mb-5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-meta"
+        >
+          {TOOL_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-ink-soft hover:text-saffron-dark font-medium no-underline hover:underline min-h-[44px] inline-flex items-center px-1"
+            >
+              {t(link.labelKey)}
+            </a>
+          ))}
+        </nav>
         <p className="text-center text-mini text-ink-soft">
           {t("computed_with")} ·{" "}
           <a href="/" className="text-saffron hover:text-saffron-dark font-semibold">

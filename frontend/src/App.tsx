@@ -28,8 +28,12 @@ const PrivacyPage = lazy(() =>
   import("@/pages/PrivacyPage").then((m) => ({ default: m.PrivacyPage })),
 );
 const TermsPage = lazy(() => import("@/pages/TermsPage").then((m) => ({ default: m.TermsPage })));
+const LandingPage = lazy(() =>
+  import("@/pages/LandingPage").then((m) => ({ default: m.LandingPage })),
+);
 
 export type View =
+  | "home"
   | "kundali"
   | "panchang"
   | "muhurta"
@@ -38,12 +42,20 @@ export type View =
   | "privacy"
   | "terms";
 
-const MONETIZED_VIEWS = new Set<View>(["panchang", "kundali", "muhurta", "transits", "frequency"]);
+const MONETIZED_VIEWS = new Set<View>([
+  "home",
+  "panchang",
+  "kundali",
+  "muhurta",
+  "transits",
+  "frequency",
+]);
 
 const SITE = "https://vedicpanchanga.com";
 
 const VIEW_PATH: Record<View, string> = {
-  panchang: "/",
+  home: "/",
+  panchang: "/panchang",
   kundali: "/kundali",
   muhurta: "/muhurta",
   transits: "/transits",
@@ -56,11 +68,19 @@ const SEO_BY_VIEW: Record<
   View,
   { title: string; description: string; canonical: string; keywords?: string }
 > = {
-  panchang: {
+  home: {
     title: "Vedic Panchanga - Free Drik Panchang, Kundali & Muhurta Calculator",
     description:
-      "Free Vedic Panchanga calculator: daily Drik Panchang, North & South Indian Kundali (birth chart), Vimshottari Dasha, divisional charts, and Muhurta finder. Sidereal Lahiri, Swiss Ephemeris precision.",
+      "Free Vedic astrology tools in one place: daily Drik Panchang, Kundali birth chart, Muhurta finder, planetary transits, and healing frequencies. Sidereal Lahiri, Swiss Ephemeris precision.",
     canonical: `${SITE}/`,
+    keywords:
+      "vedic panchanga, drik panchang, kundali, muhurta, hindu calendar, jyotisha, vedic astrology calculator",
+  },
+  panchang: {
+    title: "Daily Drik Panchang - Tithi, Nakshatra & Hindu Calendar · Vedic Panchanga",
+    description:
+      "Free daily Drik Panchang for any date and location: tithi, nakshatra, yoga, karana, sunrise and sunset, Rahu Kala, Hora, Gowri Panchangam, and live lagna chart. Sidereal Lahiri, Swiss Ephemeris precision.",
+    canonical: `${SITE}/panchang`,
     keywords:
       "vedic panchanga, drik panchang, panchang today, tithi, nakshatra, yoga, karana, sunrise sunset, hindu calendar, jyotisha",
   },
@@ -134,9 +154,9 @@ function viewFromPath(): View {
     case "/panchang":
       return "panchang";
     case "/":
-      return "panchang";
+      return "home";
     default:
-      return "panchang";
+      return "home";
   }
 }
 
@@ -145,7 +165,7 @@ function viewFromPath(): View {
 function migrateHashOnce(): View | null {
   const hash = window.location.hash.replace("#", "");
   if (!hash) return null;
-  const allowed: View[] = ["kundali", "panchang", "muhurta", "transits", "frequency"];
+  const allowed: View[] = ["home", "kundali", "panchang", "muhurta", "transits", "frequency"];
   const v = allowed.includes(hash as View) ? (hash as View) : null;
   if (!v) return null;
   window.history.replaceState(null, "", VIEW_PATH[v] + window.location.search);
@@ -242,6 +262,7 @@ export default function App() {
 
       <main className="flex-1 max-w-screen-3xl w-full mx-auto px-3 sm:px-6 lg:px-8">
         <Suspense fallback={<PageSkeleton />}>
+          {view === "home" && <LandingPage onNavigate={setView} />}
           {view === "kundali" && (
             <KundaliPage sharedLocation={sharedLocation} onLocationChange={setSharedLocation} />
           )}

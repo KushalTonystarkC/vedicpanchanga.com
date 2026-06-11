@@ -26,6 +26,7 @@ interface Props {
   selectedPlanet: string | null;
   onSelectPlanet: (abbr: string | null) => void;
   onPlanetDetail?: (abbr: string, division: number) => void;
+  onHouseDetail?: (house: number, division: number) => void;
   hideOuter: boolean;
   onHideOuterChange: (v: boolean) => void;
   filteredPlanets: Planet[];
@@ -59,6 +60,7 @@ export function ChartTabs({
   selectedPlanet,
   onSelectPlanet,
   onPlanetDetail,
+  onHouseDetail,
   hideOuter,
   onHideOuterChange,
   filteredPlanets,
@@ -164,6 +166,15 @@ export function ChartTabs({
       }
     },
     [showAspects, onSelectPlanet, onPlanetDetail, active.division],
+  );
+
+  const handleChartHouseClick = useCallback(
+    (house: number) => {
+      if (onHouseDetail) {
+        onHouseDetail(house, active.division);
+      }
+    },
+    [onHouseDetail, active.division],
   );
 
   return (
@@ -273,6 +284,7 @@ export function ChartTabs({
             showDegrees={showDegrees}
             selectedPlanet={isD1 && showAspects ? selectedPlanet : null}
             onSelectPlanet={handleChartPlanetClick}
+            onSelectHouse={onHouseDetail ? handleChartHouseClick : undefined}
             drishti={isD1 ? data.drishti : undefined}
             showAspects={isD1 && showAspects}
           />
@@ -287,6 +299,7 @@ export function ChartTabs({
             showDegrees={showDegrees}
             selectedPlanet={isD1 && showAspects ? selectedPlanet : null}
             onSelectPlanet={handleChartPlanetClick}
+            onSelectHouse={onHouseDetail ? handleChartHouseClick : undefined}
             drishti={isD1 ? data.drishti : undefined}
             showAspects={isD1 && showAspects}
           />
@@ -294,7 +307,7 @@ export function ChartTabs({
         {!isWest && activeSubtitle && (
           <p className="text-center text-xs text-ink-soft mt-3 italic">{activeSubtitle}</p>
         )}
-        {!isWest && onPlanetDetail && (
+        {!isWest && (onPlanetDetail || onHouseDetail) && (
           <p className="text-center text-xs mt-3 italic" style={{ color: "var(--accent-amber)" }}>
             {t("drishti_hint")}
           </p>
